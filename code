@@ -1,0 +1,30 @@
+user_pas_input = input('Введите ваш пароль: ')
+user_place_input = input('Введите сайт/приложение для пароля: ')
+user_number_input = input('Введите номер телефона для анализа: ')
+
+passwords_choice = ['Пароль абсолютно надёжный', 'Пароль надёжный','Пароль ненадёжный!', 'Пароль абсолютно НЕНАДЁЖНЫЙ!']
+
+
+if len(user_pas_input) >= 14:
+    print(passwords_choice[0])
+
+elif len(user_pas_input) < 12 and len(user_pas_input) > 9:
+    print(passwords_choice[2])
+
+elif len(user_pas_input) == 12 and len(user_pas_input) == 13:
+    print(passwords_choice[1])
+
+else:
+    print(passwords_choice[3])
+
+with open ('database.txt', 'a') as f:
+    f.write(user_place_input + ':' +'\n')
+    f.write('+' + user_number_input + '\n')
+    f.write(user_pas_input + '\n')
+    f.write('----------------' + '\n')
+
+
+
+
+
+
